@@ -15,8 +15,11 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    // Simple observable declaration.
     Observable<Integer> observable = Observable.just(1);
     try {
+      // Calls the `subscribeWith` method, but the lint check does not detect it and
+      // let's it pass when you run `./gradlew :app:lint`
       Observer<Integer> observer = getDisposable(observable::subscribeWith);
     } catch (Exception e ){
 

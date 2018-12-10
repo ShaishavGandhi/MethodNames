@@ -6,6 +6,10 @@ import com.intellij.psi.PsiMethod
 import org.jetbrains.uast.UCallExpression
 import java.util.*
 
+/**
+ * Simple lint check which looks out for all `subscribe`/`subscribeWith` method calls and
+ * raises an error if they're from Reactive types like Observable, Flowable etc.
+ */
 class SubscribeDetector: Detector(), SourceCodeScanner {
 
   companion object {
